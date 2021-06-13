@@ -3,9 +3,9 @@
 # Find the Dockerfile for mcr.microsoft.com/azure-functions/python:3.0-python3.8-core-tools at this URL
 # https://github.com/Azure/azure-functions-docker/blob/dev/host/3.0/buster/amd64/python/python38/python38-core-tools.Dockerfile
 
-#FROM mcr.microsoft.com/vscode/devcontainers/base:buster
-ARG VARIANT=5.0
-FROM mcr.microsoft.com/vscode/devcontainers/dotnetcore:${VARIANT}
+FROM mcr.microsoft.com/vscode/devcontainers/base:buster
+#ARG VARIANT=5.0
+#FROM mcr.microsoft.com/vscode/devcontainers/dotnetcore:${VARIANT}
 
 # Options
 ARG INSTALL_ZSH="true"
@@ -31,13 +31,13 @@ RUN apt-get update \
     && apt-get autoremove -y && apt-get clean -y && rm -rf /var/lib/apt/lists/* /tmp/library-scripts/
 
 # Install .NET
-#RUN apt-get update; \
-#    apt-get install -y wget;
-#RUN wget https://packages.microsoft.com/config/debian/10/packages-microsoft-prod.deb -O packages-microsoft-prod.deb; \
-#    apt-get update; \
-#    apt-get install -y apt-transport-https && apt-get update; \
-#    dpkg -i packages-microsoft-prod.deb && apt-get update; \
-#    apt-get install -y dotnet-sdk-5.0
+RUN mkdir $HOME/dotnet \
+    && curl https://download.visualstudio.microsoft.com/download/pr/f5c00d7a-e1c8-494a-a88b-9ed1dc62249e/8438122af4fd928900a0ebf129c6c1d6/dotnet-sdk-6.0.100-preview.4.21255.9-linux-x64.tar.gz -o $HOME/dotnet/dotnet-sdk-6.0.100-preview.4.21255.9-linux-x64.tar.gz \
+    && tar zxf $HOME/dotnet/dotnet-sdk-6.0.100-preview.4.21255.9-linux-x64.tar.gz -C $HOME/dotnet \
+    && export DOTNET_ROOT=$HOME/dotnet \
+    && export PATH=$PATH:$HOME/dotnet
+
+# apt-cache policy vlc
 
 # Install kubectl
 RUN curl -sSL -o /usr/local/bin/kubectl https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl \
