@@ -21,12 +21,18 @@ Alternatively, you can run it from VS Code from your machine! (Screenshot below)
 <img width="846" alt="Run it from VS Code from your machine" src="https://user-images.githubusercontent.com/3009519/122646676-9caf0e00-d0dd-11eb-983d-146c0fdbf215.png">
 
 ## Running some samples
-Browse the src/WebApi or create a new Web API from CLI
+
+1) Make sure `dotnet` tooling is part of your $PATH
+
+> export DOTNET_ROOT=$HOME/dotnet \
+    && export PATH=$PATH:$HOME/dotnet
+    
+2) Browse the src/WebApi or create a new Web API from CLI
 
 > dotnet new web -o src/WebApi
 
 or
 > cd src/WebApi
 
-Then 
+3) Then run it 
 > dotnet watch
