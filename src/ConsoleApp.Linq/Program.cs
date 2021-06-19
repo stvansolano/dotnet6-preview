@@ -1,15 +1,19 @@
-﻿using MyConsole = MyCode.Functions;
-var WriteLine = new Action<IEnumerable<int>>(MyConsole.WriteLine);
+﻿using MyConsole = My.Console;
+
+MyConsole.WriteLine("Hello World! LINQ features");
+MyConsole.WriteLine(System.Environment.NewLine);
+
+MyConsole.WriteLine("Chunks");
+MyConsole.WriteLine("======", System.Environment.NewLine);
 
 int[] numbers = new int[]{1 ,2 ,3 ,4 ,5 ,6 ,7 ,8 ,9, 10, 11, 12};
-IEnumerable<int[]> numberChunks = numbers.Chunk(5); // {[1, 2, 3, 4, 5], [6, 7, 8, 9, 10], [11, 12]}
+int[][] chunks = numbers.Chunk(5).ToArray(); // {[1, 2, 3, 4, 5], [6, 7, 8, 9, 10], [11, 12]}
 
-foreach (var result in numberChunks)
+for (var position = 1; position < chunks.Count(); position++)
 {
-    WriteLine(result);          
+    MyConsole.WriteLine($"Chunk {position}", chunks[position - 1]);          
 }
 
-WriteLine(numbers.Take(..3));          
-WriteLine(numbers.DistinctBy(x => x % 3)); // {1, 2, 3}
-
-Console.WriteLine("Hello World!");
+MyConsole.WriteLine(System.Environment.NewLine);
+MyConsole.WriteLine("Take(..x)      ", numbers.Take(..3));
+MyConsole.WriteLine("DistinctBy (%3)", numbers.DistinctBy(x => x % 3)); // {1, 2, 3}
