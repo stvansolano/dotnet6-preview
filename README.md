@@ -16,6 +16,10 @@ A ready-to-use, multi-purpose dev environment.
 2) Give it a name
 3) Start using it from GitHub Codespaces (Code -> Open With Codespaces) 
 
+Alternatively, you can run it from VS Code from your machine! (Screenshot below)
+
+<img width="846" alt="Run it from VS Code from your machine" src="https://user-images.githubusercontent.com/3009519/122646676-9caf0e00-d0dd-11eb-983d-146c0fdbf215.png">
+
 ## Running some samples
 Browse the src/WebApi or create a new Web API from CLI
 
