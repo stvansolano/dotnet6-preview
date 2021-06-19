@@ -7,7 +7,13 @@ public class BloggingContext : DbContext
     // The following configures EF to create a Sqlite database file as `C:\blogging.db`.
     // For Mac or Linux, change this to `/tmp/blogging.db` or any other absolute path.
     protected override void OnConfiguring(DbContextOptionsBuilder options)
-        => options.UseSqlite(@"Data Source=blogging.db");
+        => options.UseSqlite(@"Data Source=/tmp/blogging.db");
+
+    protected override void OnModelCreating(ModelBuilder modelBuilder) =>
+            modelBuilder.Entity<Blog>()
+                .ToTable("Blogs")
+                .Property(b => b.Url)
+                .IsRequired();
 }
 
 public class Blog

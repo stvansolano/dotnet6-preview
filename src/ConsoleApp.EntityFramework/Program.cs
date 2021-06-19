@@ -1,6 +1,9 @@
-﻿using MyConsole = MyCode.Functions;
-var WriteLine = new Action<IEnumerable<int>>(MyConsole.WriteLine);
+﻿using static System.Console;
 
 using var myContext = new BloggingContext();
+myContext.Database.EnsureCreated();
 
-Console.WriteLine(myContext.Blogs.Count());
+myContext.Blogs.Add(new Blog{ Url = "https://stvansolano.github.io/blog" });
+
+await myContext.SaveChangesAsync();
+WriteLine(myContext.Blogs.Count());

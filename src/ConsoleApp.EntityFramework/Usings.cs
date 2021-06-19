@@ -2,8 +2,6 @@ global using System;
 global using System.Linq;
 global using System.Collections.Generic;
 
-global using MyCode;
-
 global using Microsoft.EntityFrameworkCore;
 global using Microsoft.EntityFrameworkCore.Sqlite;
 
