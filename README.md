@@ -39,4 +39,4 @@ or
 
 ## Links
 
-I included several links to the previews, Microsoft posts and of course useful links [here](https://github.com/stvansolano/dotnet6-preview/blob/main/posts/links.md].
+I included several links to the previews, Microsoft posts and of course useful links [here](https://github.com/stvansolano/dotnet6-preview/blob/main/posts/links.md).
