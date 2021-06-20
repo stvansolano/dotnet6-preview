@@ -34,7 +34,6 @@
 		"ms-vsliveshare.vsliveshare",
 		"vscode-icons-team.vscode-icons",
 		"visualstudioexptteam.vscodeintellicode",
-		"ms-azuretools.vscode-docker",
 		"ms-kubernetes-tools.vscode-kubernetes-tools",
 		"inercia.vscode-k3d"
 	],
