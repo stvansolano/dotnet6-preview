@@ -21,3 +21,5 @@ Don't forget to open issues if something needs ny attention, and give it a star.
 P.D: I would be making progress and introduce changes in the repo as new previews got out. So stay refreshing/F5ing! 
 
 -Esteban
+
+[>> Next: Welcome to .NET 6 preview! CodeBox by @stvansolano](https://github.com/stvansolano/dotnet6-preview/blob/main/README.md) 
