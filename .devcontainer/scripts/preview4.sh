@@ -4,5 +4,5 @@ mkdir $HOME/dotnet \
 
 chmod +x root $HOME/dotnet
 
-SET PATH="${PATH}:$HOME/dotnet"
-export PATH=$PATH
+export DOTNET_ROOT=$HOME/dotnet \
+    && export PATH=$PATH:$HOME/dotnet

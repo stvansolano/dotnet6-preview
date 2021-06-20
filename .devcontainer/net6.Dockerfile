@@ -7,7 +7,7 @@ RUN apk --no-cache add curl
 ENV HOME=/home
 
 # Install .NET
-COPY . /tmp
+COPY /scripts /tmp
 RUN sh /tmp/preview4.sh
 
 ENV PATH="${PATH}:$HOME/dotnet"
