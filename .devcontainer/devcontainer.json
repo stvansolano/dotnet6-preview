@@ -3,7 +3,7 @@
 // https://github.com/microsoft/vscode-dev-containers/tree/v0.134.1/containers/docker-from-docker-compose
 {
 	"name": "Docker from Docker Compose + Kubernetes & Helm",
-	"dockerFile": "Dockerfile",
+	"dockerFile": "net6.Dockerfile",
 	//"dockerComposeFile": [
 	//	"docker-compose.yml"]
 	//,
