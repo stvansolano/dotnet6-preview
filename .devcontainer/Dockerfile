@@ -28,6 +28,6 @@ RUN apt-get update \
 
 # Install .NET
 COPY /scripts /tmp
-RUN sh /tmp/preview4.sh
+RUN sh /tmp/preview5.sh
 
 ENTRYPOINT [ "sleep", "infinity" ]
