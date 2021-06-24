@@ -1,22 +1,10 @@
-FROM debian
-#RUN groupadd -r dotneter && useradd -r -g dotneter dotneter
-
-# Add curl
-RUN apt update && apt upgrade  \
-    && apt install curl --assume-yes
-
-# Install .NET
-COPY /scripts /tmp
-RUN sh /tmp/preview5.sh
-
-RUN chmod -R +w,g=rwx $HOME/dotnet/dotnet \
-    && alias dotnet='$HOME/dotnet'
+FROM mcr.microsoft.com/dotnet/nightly/sdk:6.0.100-preview.6
 
 ENTRYPOINT /bin/sh -c "trap : TERM INT; sleep 9999999999d & wait"
 
-# docker build --pull --rm -f "net6.Dockerfile" .  -t stvansolano/dotnet6-dev:preview5
-# docker run --rm -d stvansolano/dotnet6-dev:preview5
-# docker run --rm -d stvansolano/dotnet6-dev:preview5 -e DOTNET_ROOT=$HOME/dotnet -e PATH=$PATH:$HOME/dotnet
-# docker run --rm -it stvansolano/dotnet6-dev:preview5 /bin/bash
-# docker run --rm stvansolano/dotnet6-dev:preview5
-# docker push stvansolano/dotnet6-dev:preview5
+# docker build --pull --rm -f "net6.Dockerfile" .  -t stvansolano/dotnet6-dev:preview
+# docker run --rm -d stvansolano/dotnet6-dev:preview
+# docker run --rm -d stvansolano/dotnet6-dev:preview -e DOTNET_ROOT=$HOME/dotnet -e PATH=$PATH:$HOME/dotnet
+# docker run --rm -it stvansolano/dotnet6-dev:preview /bin/bash
+# docker run --rm stvansolano/dotnet6-dev:preview
+# docker push stvansolano/dotnet6-dev:preview
