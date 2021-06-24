@@ -1,9 +1,18 @@
+# docker-compose up --build -d
+
 version: "3.7"
 services:
-  #app:
-  #  build: your/folder
-  #  ports:
-  #    - 80:80
+  dotnet6-preview:
+    build: 
+      dockerfile: .devcontainer/net6.Dockerfile
+      context: .
+    ports:
+      - 80:80
+    links: 
+      - db
+    depends_on: 
+      - db
+  
   db:
     environment:
       ACCEPT_EULA: "Y"
