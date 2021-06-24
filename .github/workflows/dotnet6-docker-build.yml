@@ -1,0 +1,26 @@
+
+name: Docker Hub - Build images 
+
+on:
+  push:
+    branches:
+      - 'main'
+    paths:
+    - 'src/**'
+    - '.github/workflows/dotnet6-docker-build.yml'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    
+    - uses: actions/checkout@v2
+    - name: Build the Docker image
+      env:
+        username: stvansolano
+        image: dotnet6-dev
+        tag: preview #${{ github.sha }}
+      run: |
+        docker build -f .devcontainer/net6.Dockerfile . -t $username/$image:$tag
+        echo 'Version:'
+        echo $version
