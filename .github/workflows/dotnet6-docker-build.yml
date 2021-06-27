@@ -35,3 +35,9 @@ jobs:
 
         # Use a specific shell
         #shell: # optional, default is sh
+
+    - name: Run check - Compile some .NET 6 code (Web Api -basic)
+      run: |
+        docker build -f src/ci.Dockerfile src -t stvansolano/dotnet6-dev:web-api
+
+    
