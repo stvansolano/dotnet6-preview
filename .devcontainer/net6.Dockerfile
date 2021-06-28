@@ -1,5 +1,7 @@
 FROM mcr.microsoft.com/dotnet/nightly/sdk:6.0.100-preview.6
 
+# export DOTNET_ROOT=$HOME/dotnet && export PATH=$PATH:$HOME/dotnet
+
 ENTRYPOINT /bin/sh -c "trap : TERM INT; sleep 9999999999d & wait"
 
 # docker build --pull --rm -f "net6.Dockerfile" .  -t stvansolano/dotnet6-dev:preview

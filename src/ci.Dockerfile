@@ -11,9 +11,13 @@ FROM build AS publish
 RUN dotnet publish "WebApi.csproj" -c Release -o /app/publish
 
 FROM base AS final
+RUN apk update && apk add curl
 WORKDIR /app
 COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "WebApi.dll"]
+EXPOSE 80
+CMD ["dotnet", "WebApi.dll", "--urls http://+:80"]
+
+ENTRYPOINT /bin/sh -c "trap : TERM INT; sleep 9999999999d & wait"
 
 # docker build --pull --rm -f "ci.Dockerfile" . -t stvansolano/dotnet6-web-api:ci
 # docker build -f src/ci.Dockerfile src -t stvansolano/dotnet6-dev:web-api

@@ -1,0 +1,37 @@
+
+name: DotNet 6 - Docker Image checks
+
+on:
+  push:
+    branches:
+      - 'main'
+    paths:
+    - 'src/**'
+    - '.github/workflows/dotnet6-docker-image-checks.yml'
+
+jobs:
+  build:
+    env:
+      username: stvansolano
+      image: dotnet6-dev
+      tag: preview #${{ github.sha }}
+    runs-on: ubuntu-latest
+    steps:
+
+    - uses: actions/checkout@v2
+    - name: Checkout
+      run: |
+        echo "Folders"
+        ls .
+
+    - name: Run check - Compile some .NET 6 code (Web Api -basic)
+      run: |
+        docker build -f src/ci.Dockerfile src -t stvansolano/dotnet6-dev:web-api
+
+    - name: Run check - Web Api -basic - Is alive
+      uses: addnab/docker-run-action@v3
+      with:
+        # Image
+        image: stvansolano/dotnet6-dev:web-api
+        run: |
+          curl -o - http://localhost:80
