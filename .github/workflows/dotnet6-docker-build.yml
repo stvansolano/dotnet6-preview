@@ -40,4 +40,10 @@ jobs:
       run: |
         docker build -f src/ci.Dockerfile src -t stvansolano/dotnet6-dev:web-api
 
-    
+    - name: Run check - Web Api -basic - Is alive
+      uses: addnab/docker-run-action@v3
+      with:
+        # Image
+        image: stvansolano/dotnet6-dev:web-api
+        run: |
+          curl http://localhost:5000/
