@@ -15,9 +15,7 @@ RUN apk update && apk add curl
 WORKDIR /app
 COPY --from=publish /app/publish .
 EXPOSE 80
-CMD ["dotnet", "WebApi.dll", "--urls http://+:80"]
-
-ENTRYPOINT /bin/sh -c "trap : TERM INT; sleep 9999999999d & wait"
+ENTRYPOINT ["dotnet", "WebApi.dll", "--urls http://+:80"]
 
 # docker build --pull --rm -f "ci.Dockerfile" . -t stvansolano/dotnet6-web-api:ci
 # docker build -f src/ci.Dockerfile src -t stvansolano/dotnet6-dev:web-api

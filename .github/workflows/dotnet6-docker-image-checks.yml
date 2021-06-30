@@ -27,11 +27,7 @@ jobs:
     - name: Run check - Compile some .NET 6 code (Web Api -basic)
       run: |
         docker build -f src/ci.Dockerfile src -t stvansolano/dotnet6-dev:web-api
-
-    - name: Run check - Web Api -basic - Is alive
-      uses: addnab/docker-run-action@v3
-      with:
-        # Image
-        image: stvansolano/dotnet6-dev:web-api
-        run: |
-          curl -o - http://localhost:80
+        docker run --name webapi stvansolano/dotnet6-dev:web-api -p 80:80
+        docker exec -d -ti webapi sh -c "curl -o - http://localhost:80"
+        sleep 10s
+        docker rm webapi
