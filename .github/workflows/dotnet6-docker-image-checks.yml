@@ -33,5 +33,4 @@ jobs:
         image: stvansolano/dotnet6-dev:web-api
         shell: sh
         run: |
-          echo "Calling API"
-          curl -o - http://localhost:80
+          echo "Called ConsoleApp"
