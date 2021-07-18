@@ -13,5 +13,7 @@ namespace My
         public static void WriteLine(string text, IEnumerable<int> numbers = null) 
             => System.Console.WriteLine($"{text}" +
                 (numbers == null ? "" : $" => {string.Join(',', numbers)}"));
+
+        public static void NewLine() => WriteLine(System.Environment.NewLine);
     }
 }
