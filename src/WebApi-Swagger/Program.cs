@@ -1,13 +1,8 @@
-using System;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
-using Microsoft.OpenApi.Models;
-using Microsoft.AspNetCore.Mvc;
-
 var builder = WebApplication.CreateBuilder(args);
 
 // ConfigureServices
+builder.Services.AddDbContext<TodoDb>(opt => opt.UseInMemoryDatabase("ToDos"));  
+builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 builder.Services.AddControllers();
 builder.Services.AddSwaggerGen(c =>
 {
@@ -27,14 +22,21 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 
 app.MapGet("/", (Func<string>)(() => "Hello World!"));
-app.MapControllers();
+app.MapGet("/api/todos", async (TodoDb db) => await db.Todos.ToListAsync());
 
 app.Run();
 
-[ApiController]
-[Route("/api/v1/[controller]")]
-public class TodosController : Controller
+class Todo
 {
-    [HttpGet]
-    public IActionResult Get() => base.Ok("Hello, Controller!");
+    public int Id { get; set; }
+    [Required] public string Title { get; set; }
+    public bool IsComplete { get; set; }
+}
+
+class TodoDb : DbContext
+{
+    public TodoDb(DbContextOptions<TodoDb> options)
+        : base(options) { }
+
+    public DbSet<Todo> Todos { get; set; }
 }
