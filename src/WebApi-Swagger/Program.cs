@@ -5,11 +5,13 @@ builder.Services.AddDbContext<TodoDb>(opt => {
     opt.UseInMemoryDatabase("ToDos");
 });  
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
-builder.Services.AddControllers();
+builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c =>
 {
     c.SwaggerDoc("v1", new OpenApiInfo { Title = "My WebApi", Version = "v1" });
 });
+
+builder.Services.AddControllers();
 var app = builder.Build();
 
 // Configure
