@@ -13,6 +13,7 @@
 
 ### .NET 6 Preview blogs:
 
+- Preview 6: https://devblogs.microsoft.com/dotnet/announcing-net-6-preview-6/
 - Preview 5: https://devblogs.microsoft.com/dotnet/announcing-net-6-preview-5/
 - Preview 4: https://devblogs.microsoft.com/dotnet/announcing-net-6-preview-4/
 - Preview 3: https://devblogs.microsoft.com/dotnet/announcing-net-6-preview-3/
