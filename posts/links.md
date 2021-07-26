@@ -6,6 +6,7 @@
 - ASP.NET 6 preview: https://devblogs.microsoft.com/aspnet/asp-net-core-updates-in-net-6-preview-5/
 
 ### C# Links
+- C# 10 what's new: https://docs.microsoft.com/en-us/dotnet/csharp/whats-new/csharp-10
 - C# 9 & preview: https://docs.microsoft.com/en-us/dotnet/csharp/whats-new/csharp-9
 - C# guide: https://docs.microsoft.com/en-us/dotnet/csharp/
 - C# Language Versioning: https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/configure-language-version
