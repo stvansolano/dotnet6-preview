@@ -34,8 +34,8 @@
 		"ms-vsliveshare.vsliveshare",
 		"vscode-icons-team.vscode-icons",
 		"visualstudioexptteam.vscodeintellicode",
-		"ms-kubernetes-tools.vscode-kubernetes-tools",
-		"inercia.vscode-k3d"
+		//"ms-kubernetes-tools.vscode-kubernetes-tools",
+		//"inercia.vscode-k3d"
 	],
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	"forwardPorts": [],
