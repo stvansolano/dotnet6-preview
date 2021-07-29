@@ -1,4 +1,4 @@
-FROM mcr.microsoft.com/dotnet/nightly/sdk:6.0.100-preview.6
+FROM mcr.microsoft.com/dotnet/nightly/sdk:6.0.100-preview.7
 
 # export DOTNET_ROOT=$HOME/dotnet && export PATH=$PATH:$HOME/dotnet
 

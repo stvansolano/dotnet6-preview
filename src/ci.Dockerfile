@@ -1,7 +1,7 @@
 FROM mcr.microsoft.com/dotnet/aspnet:6.0-alpine as base
 WORKDIR /app
 
-FROM mcr.microsoft.com/dotnet/nightly/sdk:6.0.100-preview.6 as build
+FROM mcr.microsoft.com/dotnet/nightly/sdk:6.0.100-preview.7 as build
 COPY . /src
 WORKDIR /src/ConsoleApp
 RUN ls
