@@ -10,7 +10,7 @@ A ready-to-use, multi-purpose dev environment.
 
 [![Try in PWD](https://raw.githubusercontent.com/play-with-docker/stacks/master/assets/images/button.png)](https://labs.play-with-docker.com/?stack=https://raw.githubusercontent.com/stvansolano/codebox-dotnet/main/docker-compose.yml)
 
-## Hot to Use (.NET 6 Preview 4)
+## Hot to Use (.NET 6 Preview)
 
 1) Go to https://github.com/stvansolano/dotnet6-preview and hit the "Use this template"
 2) Give it a name
